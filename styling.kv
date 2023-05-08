@@ -1,0 +1,991 @@
+
+<MyTheme>
+	on_release: root.set_theme_dialog_icon(check, root.text)
+	CheckboxLeftWidget: 
+		id: check 
+		group: "check"
+		theme_text_color: 'Custom'
+		text_color: app.theme_cls.primary_color
+		
+
+<SecurityAgencyList>:
+	theme_text_color: "Custom" 
+	text_color: app.theme_cls.opposite_bg_dark
+	on_release: app.show_agency_dialog(root.text, root.secondary_text, root.tertiary_text)
+	secondary_font_style : "Caption"
+
+	IconLeftWidget:
+		id: icon
+		icon: root.icon
+		theme_text_color: 'Custom'
+		text_color: app.theme_cls.accent_color
+							
+<SettingsList>:
+	theme_text_color: "Custom" 
+	text_color: app.theme_cls.opposite_bg_dark
+	on_release: app.set_settings(root.text)
+	secondary_font_style : "Caption"
+
+	IconLeftWidget:
+		id: icon
+		icon: root.icon
+		theme_text_color: 'Custom'
+		text_color: app.theme_cls.accent_color
+		
+<ReportsListItem>:
+	text: root.reporterName
+	secondary_text: root.incidentLocation
+	theme_text_color: "Custom" 
+	text_color: app.theme_cls.opposite_bg_dark
+	on_release: app.set_report_screen(report = root)
+	secondary_font_style : "Caption"
+
+	IconLeftWidget:
+		id: icon
+		icon: "account-child-circle"
+		theme_text_color: 'Custom'
+		text_color: app.theme_cls.accent_color
+				
+
+<MDTextField>:
+    font_size: 40
+    #color_active:[1,1,1,1]
+
+			
+Screen:
+	ScreenManager:
+		id : screen_manager
+		
+		
+		Screen:
+            name : "home_screen"
+            BoxLayout:
+                orientation: 'vertical'
+                MDTopAppBar:
+					id: app_heading
+					pos_hint: {'top': True}
+					MDIcon:
+						icon: "account-child-circle"
+						color: app.theme_cls.bg_dark
+						pos_hint: {"center_x": .5, "top": .99}
+					MDLabel:											
+				        text: 'AbuseAlert'
+				        pos_hint: {"center_x": .5, "top": .99}	
+				        theme_text_color: "Custom"
+					    text_color: app.theme_cls.bg_dark
+					    font_style: "H6"
+					    font_size:40
+					    halign:'center'
+					    size_hint_y:None
+					    height:self.texture_size[1]					    
+                    
+                MDBottomNavigation:
+                    id: bottom_nav_panel
+                    on_switch_tabs: app.on_tab_switch(*args)
+
+                    MDBottomNavigationItem:
+                        name: "main-report"
+                        text: "Report"
+                        theme_text_color: "Custom" 
+                        text_color: app.theme_cls.opposite_bg_dark
+                        icon: "microphone-variant"
+				    
+					    BoxLayout:
+                            orientation: "vertical"
+                            size_hint_y: None
+                            height: self.minimum_height
+                            spacing: dp(10)
+                            pos_hint: {"center_x": .5, "top": .95}					
+					        MDLabel:
+					            text: "Report a Child Abuse Incident"
+					            theme_text_color: "Custom"
+					            text_color: app.theme_cls.accent_color
+					            font_style:'Button'
+					            font_size:40
+					            halign:'center'
+					            size_hint_y:None
+					            height:self.texture_size[1]	
+					            pos_hint: {"center_x": .5}				            					            
+					        MDTextField:
+					            id: create_reports_name_field
+					            hint_text: 'Name of Reporter'
+					            helper_text: "Enter your name" 
+								helper_text_mode: "on_focus"
+								max_text_length: 20
+								width: 200
+            					font_size: 30
+					            icon_right: 'cards-variant'
+					            size_hint_x:.8
+					            color_active:[1,1,1,1]
+					            pos_hint: {"center_x": .5}
+					        MDTextField:
+					            id: create_reports_contact_field
+					            hint_text: 'Contact Info of Reporter'
+					            helper_text: "Enter your Email or Phone Number" 
+								helper_text_mode: "on_focus"
+								max_text_length: 20
+								width: 200
+            					font_size: 30
+					            icon_right: 'cards-variant'
+					            size_hint_x:.8
+					            color_active:[1,1,1,1]
+					            pos_hint: {"center_x": .5}					           
+					        MDTextField:
+						    	id: create_reports_location_field
+								hint_text : "Incident Location"
+								helper_text: "At what location did the incident occur" 
+								helper_text_mode: "on_focus"							
+								max_text_length: 300
+								width: 200
+            					font_size: 30
+								normal_color : 1, 1, 1, 1
+								color_active : 1, 1, 1, 1
+								icon_right : 'information'
+					            size_hint_x: .8			
+					            pos_hint: {"center_x": .5}
+					            #min_height: "50dp"		            
+					            #max_height: "50dp"
+					            #fill_color: 0, 0, 0, .4
+					            multiline: False					            							              					       					        
+						    MDTextField:
+						    	id: create_reports_details_field
+								hint_text : "Incident Details"
+								helper_text: "A detailed description of the incident" 
+								helper_text_mode: "on_focus"							
+								max_text_length: 300
+								width: 200
+            					font_size: 30
+								normal_color : 1, 1, 1, 1
+								color_active : 1, 1, 1, 1
+								icon_right : 'information'
+					            size_hint_x: .8			
+					            pos_hint: {"center_x": .5}
+					            #min_height: "50dp"		            
+					            #max_height: "50dp"
+					            #fill_color: 0, 0, 0, .4
+					            multiline: False
+						    BoxLayout:
+								orientation: "horizontal"
+								size_hint_x: .8
+								size_hint_y: None
+								height: self.minimum_height + 50
+								#md_bg_color: 0, .4, 1, .5
+								spacing: dp(12)
+								pos_hint: {"center_x": .5, "top": 1}
+								BoxLayout:
+			                        orientation: "vertical"
+			                        size_hint_y: None
+			                        height: self.minimum_height
+			                        spacing: dp(30)
+			                        pos_hint: {"center_x": .5, "top": .98}
+								    MDFlatButton:	                            
+				                        pos_hint: {"center_x": .5}
+				                        size_hint_x:.84	                            
+				                        on_release: app.filemanager.file_manager_open()				        										    	
+									    MDTextField:
+									        id: create_reports_image_desc_field	          
+									        hint_text: "Images: None"
+									        helper_text: "Select images to upload, if any." 
+											helper_text_mode: "persistent"										        
+									        icon_left : "image-size-select-actual"
+									        disabled: True		
+									        size_hint_x:1						            			            
+									        color_inactive:[1,1,1,1]					            
+									        #color_active:[1,1,1,1]										
+								MDIconButton:											
+									icon: "image-refresh"
+									icon_color: app.theme_cls.disabled_primary_color
+									theme_text_color: "Custom"																												        
+									pos_hint:{'center_x':.5, 'bottom':.7}		
+									mode: "round" 
+									on_release: app.filemanager.file_manager_refresh()
+																		   
+						    					            					       
+						    BoxLayout:
+	                            orientation: "vertical"
+	                            size_hint_y: None
+	                            height: self.minimum_height + 50
+	                            spacing: "9dp"
+	                            pos_hint: {"center_x": .5, "top": 0.9}    				            
+							    MDFillRoundFlatIconButton:
+							        text: "Submit"
+							        #font_style:'Button'
+							        theme_text_color: "Custom"
+							        text_color: app.theme_cls.accent_color
+							        md_bg_color: app.theme_cls.disabled_primary_color   						        
+							        pos_hint:{'center_x':.5, 'bottom':.7}		
+							        mode: "round"
+							        on_release: app.handle_UI_action("Generate New-Report")
+							        icon: "file-certificate"
+								    icon_color: app.theme_cls.accent_color
+	                        				
+							        							        				        						        						
+                    MDBottomNavigationItem:
+                        name: "security-agencies"
+                        text: "Agencies"
+                        icon: "ambulance"
+                        on_tab_press: app.handle_UI_action("404")
+                       
+                        BoxLayout:
+                            orientation: "vertical"
+                            size_hint_y: None
+                            height: self.minimum_height + 50
+                            spacing: "10dp"
+                            pos_hint: {"center_x": .5, "top": 1}	
+                            
+                            MDLabel:
+						        text: "Contact List of Security Agencies "
+						        theme_text_color: "Custom"
+						        text_color: app.theme_cls.accent_color
+						        font_style:'Button'
+						        font_size:40
+						        halign:'center'
+						        size_hint_y:None
+						        height:self.texture_size[1]
+						MDBoxLayout:
+                            orientation: "vertical"
+                            size_hint_x: 1                         
+                            pos_hint: {"center_x": .5, "top": .87}
+                            #md_bg_color: 0, .7, .2, .5
+                            #line_color: 0, .7, .2, .5	            
+		                    ScrollView:
+							    do_scroll_x: False
+							    do_scroll_y: True
+							    #scroll_type: ['bars', 'content']
+							    #bar_width: '10dp'
+							    #scroll_y: .8						    
+							    #pos_hint: {"center_x": .5, "top": .99}	
+							    MDBoxLayout:
+							        id: agency_content_box
+							        #md_bg_color: 0, 1, .8, .5
+							        #line_color: 0, 1, .8, .5
+					                orientation: "vertical"
+					                #padding_x : dp(20)
+							        spacing: '15dp'
+							        pos_hint: {"center_x": .5, "top": .99}	                                                           		            		
+							        height: self.minimum_height
+							        size_hint_x: 1
+							        size_hint_y: None        
+		                                                                                                             																											
+					        							        				        						        						
+                    MDBottomNavigationItem:
+						name: "options"
+						text: "Options"
+						theme_text_color: "Custom" 
+						text_color: app.theme_cls.opposite_bg_dark
+						icon: "tools"					                                       
+                        ScrollView:
+                            MDList:
+                                id: settings_md_list
+																																
+										        							        				        						        						
+                    MDBottomNavigationItem:
+						id: admin_login_tab
+						name: "admin_login"
+						text: "Admin"
+						theme_text_color: "Custom" 
+						text_color: app.theme_cls.opposite_bg_dark
+						icon: "account-group"
+						on_tab_press: app.handle_UI_action ("Open Admin-Login-Screen")
+												          
+						MDBoxLayout:
+							orientation: 'vertical'
+							pos_hint: {"center_x": .5, "top": 1}
+							#md_bg_color: 0, .7, .2, .5
+							spacing: "7dp"
+							size_hint_y: None
+						    height: self.minimum_height + 50
+							MDIcon:
+								icon: "account-child-circle"
+								color: app.theme_cls.accent_color
+								pos_hint: {"center_x": .5, "top": .9}
+							MDLabel:
+								text: 'AbuseAlert'
+								pos_hint: {"center_x": .5, "top": .9}
+								theme_text_color: "Custom"
+								text_color: app.theme_cls.accent_color
+								font_style: "H6"
+								font_size:40
+								halign:'center'
+								size_hint_y:None
+								height:self.texture_size[1]	   		
+							BoxLayout:
+						    	orientation: "vertical"
+							    size_hint_y: None
+							    height: self.minimum_height
+							    spacing: dp(25)
+							    pos_hint: {"center_x": .5, "top": 1}	   
+								Widget:
+								Widget:       
+						    MDLabel:
+						        text:'Login Page'
+								pos_hint: {"center_x": .5, "top": .9}
+								theme_text_color: "Custom"
+								text_color: app.theme_cls.opposite_bg_dark
+								font_style: "H3"
+								font_size:50
+								halign:'center'
+								size_hint_y:None
+								height:self.texture_size[1]	    
+						        markup:True        
+						    BoxLayout:
+						    	orientation: "vertical"
+							    size_hint_y: None
+							    height: self.minimum_height
+							    spacing: dp(50)
+							    pos_hint: {"center_x": .5, "top": 1}	   
+								Widget:
+								Widget:	    
+						    MDBoxLayout:
+								orientation: 'vertical'
+								pos_hint: {"center_x": .5, "top": .6}
+								#md_bg_color: 0, .3, .6, .5
+								spacing: "7dp"
+								size_hint_y: None
+						    	height: self.minimum_height + 50
+							    MDTextField:
+							    	id: email_field_login
+									hint_text:'Email'
+									helper_text: "Enter your email"
+									helper_text_mode: "on_focus"
+									max_text_length: 50
+									width: 200
+									font_size: 30
+									icon_right: 'email'
+									size_hint_x:.8
+									color_active:[1,1,1,1]
+									pos_hint: {"center_x": .5}
+								BoxLayout:
+									orientation: "horizontal"
+									size_hint_x: .8
+									size_hint_y: None
+									height: self.minimum_height + 50
+									#md_bg_color: 0, .4, 1, .5
+									spacing: dp(12)
+									pos_hint: {"center_x": .5, "top": 1}	                 
+									MDTextField:
+										id: pwd_field_login
+										hint_text:'Password'
+										helper_text: "Enter your password"
+										helper_text_mode: "on_focus"
+										max_text_length: 20
+										width: 200
+										font_size: 30
+										size_hint_x:.8
+										color_active:[1,1,1,1]
+										pos_hint: {"center_x": .5}
+										password: False	
+									MDIconButton:											
+										icon: "eye"
+										icon_color: app.theme_cls.disabled_primary_color
+										theme_text_color: "Custom"																																				      					        
+										pos_hint:{'center_x':.5, 'bottom':.7}		
+										mode: "round" 
+										on_release: app.handle_UI_action("Switch Password" , 0)
+														
+							    MDRaisedButton:
+							        text:'Login'
+							        pos_hint:{'center_x':.5,'center_y':.37}
+							        size_hint:.7,.09
+							        md_bg_color : app.theme_cls.primary_dark
+							        text_color : app.theme_cls.opposite_bg_dark
+							        font_size:'18dp'
+							        on_press: app.handle_action("LoginUser", True)				        
+						    BoxLayout:
+						    	orientation: "vertical"
+							    size_hint_y: None
+							    height: self.minimum_height
+							    spacing: dp(25)
+							    pos_hint: {"center_x": .5, "top": 1}	   
+								Widget:
+								Widget:       					
+						    MDBoxLayout:
+						    	orientation: "horizontal"
+						    	size_hint_x: .7
+						    	size_hint_y: None
+						    	height: self.minimum_height + 50
+						    	#md_bg_color: 0, .4, 1, .5
+						    	spacing: dp(12)
+						    	pos_hint: {"center_x": .5, "top": 1}     
+							    MDTextButton:
+							        text:'Forgot Password'
+							        text_color: app.theme_cls.opposite_bg_dark
+							        pos_hint:{'right': .1 }#, 'center_y':.25}
+							        font_size:'15dp'
+							        on_press: app.change_screen("forgot_password_screen")
+							    Widget:
+							    MDTextButton:
+							        text: "Sign Up"
+							        text_color: app.theme_cls.opposite_bg_dark
+							        #markup:True
+							        pos_hint:{'right': 1 }#, 'center_y':.22}
+							        font_size:'15dp'
+							        on_press: app.change_screen("signup_screen")
+														
+																																																																			
+																					
+														
+		Screen:
+			name: "admin_reports_screen"
+			BoxLayout:
+				orientation: 'vertical'
+				MDTopAppBar:
+					id: app_heading
+					pos_hint: {'top': True}					
+					left_action_items : [['keyboard-backspace', lambda x : app.handle_UI_action ("Leave Admin-Login-Screen") ]]
+					MDIcon:
+						icon: 'account-child-circle'
+						color: app.theme_cls.bg_dark
+						pos_hint: {"center_x": .5, "top": .99}
+					MDLabel:											
+				        text: "AbuseAlert"
+				        pos_hint: {"center_x": .5, "top": .99}	
+				        theme_text_color: "Custom"
+					    text_color: app.theme_cls.bg_dark
+					    font_style: "H6"
+					    font_size:40
+					    halign:'center'
+					    size_hint_y:None
+					    height:self.texture_size[1]
+										
+				MDTabs:
+					id: admin_login_tabs
+					text_color_normal: app.theme_cls.bg_dark
+					text_color_active: app.theme_cls.bg_dark
+					text_color_inactive: app.theme_cls.bg_dark
+					MyTab:
+						name: "reports_tab"
+						title: "Reports"
+						icon: 'card'
+						ScrollView:
+							MDList:
+								id: admin_reports_box
+								OneLineListItem:
+									name: "hidden_list_item"
+									text : 'Ongoing reports'
+									theme_text_color: "Custom" 
+									#text_color: app.theme_cls.opposite_bg_dark
+									text_color: app.theme_cls.accent_color
+								#THE NOT d in PollList are SPAWNED HERE		
+						FloatLayout:
+							MDFloatingActionButton:
+								md_bg_color : (0.925, 0.898, 0.866, 1)
+								text_color : app.theme_cls.primary_dark
+								icon : 'keyboard-backspace'
+								size: 43.5, 43.5
+								pos : root.width - 1.65*self.width, root.y + 4.35*self.height//2
+								on_press: app.handle_UI_action ("Leave Admin-Login-Screen")																																						
+					MyTab:
+						id: history_tab
+						name: "history_tab"
+						title: 'HISTORY'
+						theme_text_color: "Custom" 
+						text_color: app.theme_cls.opposite_bg_dark
+						icon: 'history'
+						
+						#THE d in PollList are SPAWNED HERE	
+						ScrollView:
+							MDList:
+								id: admin_history_box
+								OneLineListItem:
+									name: "hidden_list_item"
+									text : 'Recent reports'
+									theme_text_color: "Custom" 
+									#text_color: app.theme_cls.opposite_bg_dark
+									text_color: app.theme_cls.accent_color
+									
+								
+																			
+	                        		
+		 							
+		
+		Screen:
+			name : "admin_view_report_screen"	                                      
+			BoxLayout:
+				orientation: 'vertical'
+				MDTopAppBar:
+					id : toolbar_admin_view_report_screen
+					pos_hint: {'top': True}
+					left_action_items : [['keyboard-backspace', lambda x : app.change_screen("admin_reports_screen", curr = 'back')]]
+					right_action_items : [["close-octagon", lambda x : app.show_end_report_dialog()]]                    
+                    title: "Report Name"                    
+                    theme_text_color: "Custom" 
+                    text_color: app.theme_cls.opposite_bg_dark
+                    elevation: 10                                                                   
+				BoxLayout:
+					orientation: "vertical"
+					spacing: "7dp"
+					pos_hint: {"center_x": .5, "top": 1}
+					#md_bg_color: 0, .2, .2, .8
+					MDBoxLayout:
+						#md_bg_color: 0, 1, .8, .5
+						#line_color: 0, 1, .8, .5
+						orientation: "vertical"
+						size_hint_x: 1
+						size_hint_y: None
+						height: self.minimum_height
+						spacing: "7dp"
+						pos_hint: {"center_x": .5, "top": 1}
+						BoxLayout:
+							orientation: "vertical"
+							size_hint_y: None
+							height: self.minimum_height
+							spacing: dp(5)
+							pos_hint: {"center_x": .5, "top": 1}	   
+							Widget:
+							Widget:			                  							
+						MDIcon:	                        	        
+							icon: "account-child-circle"
+							color: app.theme_cls.primary_color
+							#font_style:'Button'					         
+							icon_size:40
+							pos_hint: {"center_x": .5, "top": 1}
+						MDLabel:
+							id: admin_view_name
+							text : 'Choose your Favourite Fruit2345678901234567890'
+							theme_text_color: "Custom"
+							text_color: app.theme_cls.opposite_bg_dark						       
+							font_style: 'Subtitle2'
+							font_size:40
+							size_hint_x: .6				            
+							size_hint_y:None
+							height:self.texture_size[1]	
+							halign:'center'
+							pos_hint: {"center_x": .5, "top": 1}
+						BoxLayout:
+							orientation: "vertical"
+							size_hint_y: None
+							height: self.minimum_height
+							spacing: dp(5)
+							pos_hint: {"center_x": .5, "top": 1}	   
+							Widget:
+							Widget:
+						MDLabel:
+							id: admin_view_contact						    
+							text : 'Choose your Favourite Fruit2345678901234567890'
+							theme_text_color: "Custom"
+							text_color: app.theme_cls.opposite_bg_dark						       
+							font_style: 'Subtitle2'
+							font_size:40
+							size_hint_x: .6				            
+							size_hint_y:None
+							height:self.texture_size[1]	
+							halign:'center'
+							pos_hint: {"center_x": .5, "top": 1}				
+						BoxLayout:
+							orientation: "vertical"
+							size_hint_y: None
+							height: self.minimum_height
+							spacing: dp(5)
+							pos_hint: {"center_x": .5, "top": 1}	   
+							Widget:
+							Widget:							
+						MDLabel:
+							id: admin_view_location						    
+							text : 'Choose your Favourite Fruit2345678901234567890'
+							theme_text_color: "Custom"
+							text_color: app.theme_cls.opposite_bg_dark						       
+							font_style: 'Subtitle2'
+							font_size:40
+							size_hint_x: .6				            
+							size_hint_y:None
+							height:self.texture_size[1]	
+							halign:'center'
+							pos_hint: {"center_x": .5, "top": 1}
+						BoxLayout:
+							orientation: "vertical"
+							size_hint_y: None
+							height: self.minimum_height
+							spacing: dp(5)
+							pos_hint: {"center_x": .5, "top": 1}	   
+							Widget:
+							Widget:     
+						MDLabel:
+							id: admin_view_details						        
+							text : 'Choose your Favourite Fruit2345678901234567890'
+							theme_text_color: "Custom"
+							text_color: app.theme_cls.opposite_bg_dark						       
+							font_style: 'Subtitle2'
+							font_size:40
+							size_hint_x: .6				            
+							size_hint_y:None
+							height:self.texture_size[1]	
+							halign:'center'
+							pos_hint: {"center_x": .5, "top": 1}	
+					Widget:												        
+			FloatLayout:
+				MDFloatingActionButton:
+					md_bg_color : (0.925, 0.898, 0.866, 1)
+					text_color : app.theme_cls.primary_dark
+					icon : 'keyboard-backspace'
+					size: 43.5, 43.5
+					pos : root.width - 1.65*self.width, root.y + 4.35*self.height//2
+					on_press: app.change_screen("admin_reports_screen", curr = 'back')			       	
+							                    							    
+						    																						
+				
+		Screen:
+			name: "signup_screen"
+		    MDBoxLayout:
+				orientation: 'vertical'
+				pos_hint: {"center_x": .5, "top": 1}
+				#md_bg_color: 0, .7, .2, .5
+				spacing: "7dp"
+				size_hint_y: None
+			    height: self.minimum_height + 50
+				MDIcon:
+					icon: "account-child-circle"
+					color: app.theme_cls.opposite_bg_dark
+					pos_hint: {"center_x": .5, "top": .9}
+				MDLabel:
+					text: 'SignUp'
+					pos_hint: {"center_x": .5, "top": .9}
+					theme_text_color: "Custom"
+					text_color: app.theme_cls.opposite_bg_dark
+					font_style: "H6"
+					font_size:40
+					halign:'center'
+					size_hint_y:None
+					height:self.texture_size[1]	   					
+			MDBoxLayout:
+				name:  "signup Card"
+				size_hint_y: .79
+				size_hint_x:.98
+				pos_hint: {"center_x": .5, "top": .9}
+				orientation: 'vertical'
+				#md_bg_color:app.theme_cls.bg_normal
+				#line_color: app.theme_cls.primary_color		
+				BoxLayout:
+					name: "account-child-circle-top-box"
+					orientation: 'horizontal'
+					size_hint_y: .4
+					height: self.minimum_height
+					#md_bg_color: 0, .7, .2, .5
+					#line_color: 0, .7, .2, .5
+					Carousel:
+						id: signup_slide
+						scroll_timeout: 0 # stop swipe gesture from changing slides.
+						FloatLayout:
+							name: "signup-profile-page"
+							BoxLayout:
+								orientation: "vertical"
+		                        size_hint_y: None
+		                        height: self.minimum_height
+		                        spacing: dp(10)
+		                        pos_hint: {"center_x": .5, "top": .95}					
+							    MDLabel:
+							        text: "Create a New Account"
+							        theme_text_color: "Custom"
+							        text_color: app.theme_cls.accent_color
+							        font_style:'Button'
+							        font_size:40
+							        halign:'center'
+							        size_hint_y:None
+							        height:self.texture_size[1]	
+							        pos_hint: {"center_x": .5}	
+							    BoxLayout:
+							    	orientation: "vertical"
+								    size_hint_y: None
+								    height: self.minimum_height
+								    spacing: dp(30)
+								    pos_hint: {"center_x": .5, "top": 1}	   
+									Widget:
+									Widget:	    				            					            
+							    MDTextField:
+							        id: email_field
+							        hint_text:'Email Address'
+							        helper_text: "Enter your email address" 
+									helper_text_mode: "on_focus"
+									max_text_length: 50
+									width: 200
+		            				font_size: 30
+							        icon_right: 'email'
+							        size_hint_x:.8
+							        color_active:[1,1,1,1]
+							        pos_hint: {"center_x": .5}					            							              					       					        					
+								BoxLayout:
+					                orientation: "vertical"
+					                size_hint_y: None
+					                height: self.minimum_height
+					                spacing: dp(20)
+					                pos_hint: {"center_x": .5, "top": .98}
+					                BoxLayout:
+										orientation: "horizontal"
+										size_hint_x: .8
+										size_hint_y: None
+										height: self.minimum_height + 50
+										#md_bg_color: 0, .4, 1, .5
+										spacing: dp(12)
+										pos_hint: {"center_x": .5, "top": 1}
+						                MDTextField:
+						                	id: pwd_field
+											hint_text : "Create Password"
+											helper_text: "Enter a password for this account" 
+											helper_text_mode: "on_focus"							
+											max_text_length: 20
+											width: 200
+											font_size: 30
+											normal_color : 1, 1, 1, 1
+											color_active : 1, 1, 1, 1
+											size_hint_x: .8			
+											pos_hint: {"center_x": .5}		
+											password: False									
+										MDIconButton:											
+											icon: "eye"
+											icon_color: app.theme_cls.disabled_primary_color
+											theme_text_color: "Custom"																																				      					        
+											pos_hint:{'center_x':.5, 'bottom':.7}		
+											mode: "round" 
+											on_release: app.handle_UI_action("Switch Password" , 1)
+											
+									BoxLayout:
+										orientation: "horizontal"
+										size_hint_x: .8
+										size_hint_y: None
+										height: self.minimum_height + 50
+										#md_bg_color: 0, .4, 1, .5
+										spacing: dp(12)
+										pos_hint: {"center_x": .5, "top": 1}	                        				
+						                MDTextField:
+						                	id: c_pwd_field
+											hint_text : "Confirm Password"
+											helper_text: "Re-enter the same password here" 
+											helper_text_mode: "on_focus"							
+											max_text_length: 20
+											width: 200
+											font_size: 30
+											normal_color : 1, 1, 1, 1
+											color_active : 1, 1, 1, 1
+											size_hint_x: .8			
+											pos_hint: {"center_x": .5}
+											password: False									
+										MDIconButton:											
+											icon: "eye"
+											icon_color: app.theme_cls.disabled_primary_color
+											theme_text_color: "Custom"																												        
+											pos_hint:{'center_x':.5, 'bottom':.7}		
+											mode: "round" 
+											on_release: app.handle_UI_action("Switch Password" , 2)
+																						            
+								BoxLayout:
+									orientation: "vertical"
+									size_hint_y: None
+									height: self.minimum_height + 50
+									spacing: "9dp"
+									pos_hint: {"center_x": .5, "top": 0.9}
+									#Next button here									
+								BoxLayout:
+									orientation: "horizontal"
+									size_hint_x: .9
+								    size_hint_y: None
+								    height: self.minimum_height + 50
+								    #md_bg_color: 0, .4, 1, .5
+								    spacing: dp(12)
+								    pos_hint: {"center_x": .5, "top": 1}   				            
+									MDFillRoundFlatIconButton:
+										text: "Back"
+										#font_style:'Button'
+										theme_text_color: "Custom"
+										text_color: app.theme_cls.accent_color
+										md_bg_color: app.theme_cls.disabled_primary_color   						        
+										pos_hint:{'center_x':.5, 'bottom':.7}		
+										mode: "round"
+										on_release: app.change_screen("home_screen", self)
+										icon: "page-previous"
+										icon_color: app.theme_cls.accent_color
+									Widget:
+									MDFillRoundFlatIconButton:
+										text: "Next"
+										#font_style:'Button'
+										theme_text_color: "Custom"
+										text_color: app.theme_cls.accent_color
+										md_bg_color: app.theme_cls.disabled_primary_color   						        
+										pos_hint:{'center_x':.5, 'bottom':.7}		
+										mode: "round"
+										on_release: app.handle_action("RegisterUser")
+										icon: "page-next"
+										icon_color: app.theme_cls.accent_color														                        				
+						FloatLayout:
+							name: "signup-OTP-page"
+							BoxLayout:
+								orientation: "vertical"
+		                        size_hint_y: None
+		                        height: self.minimum_height
+		                        spacing: dp(10)
+		                        pos_hint: {"center_x": .5, "top": .95}					
+							    MDLabel:
+							        text: "Confirm Administrator Pin"
+							        theme_text_color: "Custom"
+							        text_color: app.theme_cls.accent_color
+							        font_style:'Button'
+							        font_size:40
+							        halign:'center'
+							        size_hint_y:None
+							        height:self.texture_size[1]	
+							        pos_hint: {"center_x": .5}
+								BoxLayout:
+							    	orientation: "vertical"
+								    size_hint_y: None
+								    height: self.minimum_height
+								    spacing: dp(50)
+								    pos_hint: {"center_x": .5, "top": 1}	   
+									Widget:
+									Widget:
+								MDLabel:
+									id: otp_display
+									text: "The Admin Pin is required when creating a new Admin."
+									font_style: 'Subtitle2'
+									font_size: 30
+									size_hint_x: 1
+									size_hint_y:None
+									height:self.texture_size[1]	
+									theme_text_color: "Custom"
+									text_color: app.theme_cls.accent_color
+									pos_hint: {"center_x": .5, "top":1} 	
+									halign:'center'		           			            					            
+								MDTextField:
+								    id: otp_field
+								    hint_text: "Admin Pin"
+								    helper_text: "Enter Organisation's Administrator Key" 
+									helper_text_mode: "on_focus"
+									max_text_length: 6
+									width: 200
+			            			font_size: 30
+								    icon_right: 'key'
+								    size_hint_x:.8
+								    color_active:[1,1,1,1]
+								    pos_hint: {"center_x": .5}	
+								    						    
+								MDLabel:	
+									id: otp_timer												
+								    text: "0:50"
+								    #md_bg_color: 0, .7, .2, .5
+								    pos_hint: {"center_x": .5, "top": .99}	
+								    theme_text_color: "Custom"
+									text_color: app.theme_cls.opposite_bg_dark
+									font_style: 'Subtitle2'
+									font_size:40
+									halign:'center'
+									size_hint_y:None
+									height:self.texture_size[1]
+	  			            					       							        							    			        							    			    
+								BoxLayout:
+									orientation: "horizontal"
+									size_hint_x: .9
+								    size_hint_y: None
+								    height: self.minimum_height + 50
+								    #md_bg_color: 0, .4, 1, .5
+								    spacing: dp(12)
+								    pos_hint: {"center_x": .5, "top": 1}   				            
+									MDFillRoundFlatIconButton:
+										text: "Back"
+										#font_style:'Button'
+										theme_text_color: "Custom"
+										text_color: app.theme_cls.accent_color
+										md_bg_color: app.theme_cls.disabled_primary_color   						        
+										pos_hint:{'center_x':.5, 'bottom':.7}		
+										mode: "round"
+										on_release: app.handle_UI_action("Return SignUp-Carousel")
+										icon: "page-previous"
+										icon_color: app.theme_cls.accent_color
+									Widget:
+									MDFillRoundFlatIconButton:
+										text: "Finish"										
+										#font_style:'Button'
+										theme_text_color: "Custom"
+										text_color: app.theme_cls.accent_color
+										md_bg_color: app.theme_cls.disabled_primary_color   						        
+										pos_hint:{'center_x':.5, 'bottom':.7}		
+										mode: "round"
+										on_release: app.handle_action("CheckOTP")
+										icon: "page-last"
+										icon_color: app.theme_cls.accent_color
+								
+																				
+										
+		Screen:
+			name: "forgot_password_screen"													
+			BoxLayout:
+				orientation: "vertical"
+				size_hint_y: None
+				height: self.minimum_height
+				spacing: dp(10)
+				pos_hint: {"center_x": .5, "top": .95}					
+				MDLabel:
+					text: "Reset Password"
+					theme_text_color: "Custom"
+					text_color: app.theme_cls.accent_color
+					font_style:'Button'
+					font_size:40
+					halign:'center'
+					size_hint_y:None
+					height:self.texture_size[1]	
+					pos_hint: {"center_x": .5}
+				BoxLayout:
+					orientation: "vertical"
+					size_hint_y: None
+					height: self.minimum_height
+					spacing: dp(50)
+					pos_hint: {"center_x": .5, "top": 1}	   
+					Widget:
+					Widget:								           			            					            
+				MDTextField:
+					id: reset_password_field
+					hint_text: "E-Mail Address"
+					helper_text: "Enter E-Mail Address to reset password" 
+					helper_text_mode: "on_focus"
+					max_text_length: 50
+					width: 200
+					font_size: 30
+					icon_right: 'email'
+					size_hint_x:.8
+					color_active:[1,1,1,1]
+					pos_hint: {"center_x": .5}	
+					mode: "rectangle"
+				BoxLayout:
+					orientation: "vertical"
+					size_hint_y: None
+					height: self.minimum_height
+					spacing: dp(60)
+					pos_hint: {"center_x": .5, "top": 1}	   
+					Widget:
+					Widget:			
+    				       		  			            					       							        							    			        							    			    												        							    			        							    			    
+				BoxLayout:
+					orientation: "horizontal"
+					size_hint_x: .9
+					size_hint_y: None
+					height: self.minimum_height + 50
+					#md_bg_color: 0, .4, 1, .5
+					spacing: dp(12)
+					pos_hint: {"center_x": .5, "top": 1}
+					MDFillRoundFlatIconButton:
+						text: "Back"
+						#font_style:'Button'
+						theme_text_color: "Custom"
+						text_color: app.theme_cls.accent_color
+						md_bg_color: app.theme_cls.disabled_primary_color   						        
+						pos_hint:{'center_x':.5, 'bottom':.7}		
+						mode: "round"
+						on_release: app.change_screen("home_screen", self)
+						icon: "page-previous"
+						icon_color: app.theme_cls.accent_color
+					Widget:
+					MDFillRoundFlatIconButton:
+						text: "Finish"
+						#font_style:'Button'
+						theme_text_color: "Custom"
+						text_color: app.theme_cls.accent_color
+						md_bg_color: app.theme_cls.disabled_primary_color   						        
+						pos_hint:{'center_x':.5, 'bottom':.7}		
+						mode: "round" 
+						on_release: app.handle_action("ResetPassword")
+						icon: "login-variant"
+						icon_color: app.theme_cls.accent_color
+				                      					
+    				       		  						                        						                        		
+				                    																			
+		
+                     														
+		
+		
