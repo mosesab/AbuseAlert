@@ -5,7 +5,7 @@ A kivymd android app for reporting child abuse.
 
 
 # The Homepage 
-![1](https://github.com/mosesab/AbuseAlert/assets/87482913/eec40228-2a8a-4747-9451-c279e590f7d5)
+![1](https://github.com/mosesab/AbuseAlert/assets/87482913/eec40228-2a8a-4747-9451-c279e590f7d5 | height=300px)
 
 # The Homepage With a Different Theme
 ![2](https://github.com/mosesab/AbuseAlert/assets/87482913/588bfeec-b8db-49ca-81c7-09e373c4344e)
@@ -21,6 +21,7 @@ A kivymd android app for reporting child abuse.
 
 # Showing Of the Dark Theme 
 Me: I prefer the light theme 🐈
+
 Programmers Everywhere: What Blasphemy!!! 🐈‍⬛
 ![6](https://github.com/mosesab/AbuseAlert/assets/87482913/5dae6ae1-847b-4815-b633-7dc959cb1317)
 
@@ -29,7 +30,9 @@ Programmers Everywhere: What Blasphemy!!! 🐈‍⬛
 
 # Sign Up Screen - 2 (with Countdown)
 Me: Shhh! Tell this to no one, The secret admin key for signing up new admins is 202023
+
 The Code: 🗣️📢📢 🔊🔊
+
 This is why we use environment variables, secret tokens, OTP, JWT and so on. 
 People can't have nice things (simple, unsecure code)🥻 👗 anymore 🫠.
 ![8](https://github.com/mosesab/AbuseAlert/assets/87482913/9bbec038-1968-4c19-847e-b2f602588016)
