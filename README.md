@@ -7,7 +7,7 @@ A kivymd android app for reporting child abuse.
 # The Homepage 
 ![1]( =300x)
 
-<img src = "[https://github.com/mosesab/AbuseAlert/assets/87482913/eec40228-2a8a-4747-9451-c279e590f7d5]" height = "300">   
+<img src = "https://github.com/mosesab/AbuseAlert/assets/87482913/eec40228-2a8a-4747-9451-c279e590f7d5" height = "300">   
 
 # The Homepage With a Different Theme
 ![2](https://github.com/mosesab/AbuseAlert/assets/87482913/588bfeec-b8db-49ca-81c7-09e373c4344e)
