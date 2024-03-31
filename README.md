@@ -44,10 +44,10 @@ People can't have nice things (simple, unsecure code)🥻 👗 anymore 🫠.
 # The Login Screen 
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/c0fc8147-734d-4aba-8a27-24681e86c1bc" height="300">
 
-# What You See After Logging or Signing up
+# What You See After Logging in or Signing up
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/9853f33d-25be-433f-b5d3-780b513fa7eb" height="300">
 
-# What You See After Logging or Signing up (but with a different color theme).
+# What You See After Logging in or Signing up (but with a different color theme).
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/bfbf9fd6-d17c-4591-afcf-6adf65e765aa" height="300">
 
 # An Example Abuse Report submitted using the app. 
