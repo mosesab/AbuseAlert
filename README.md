@@ -52,5 +52,5 @@ People can't have nice things (simple, unsecure code)🥻 👗 anymore 🫠.
 
 # An Example Abuse Report submitted using the app. 
 Only Admins can see this, after logging in or signing up
-<img src="https://github.com/mosesab/AbuseAlert/assets/87482913/12fa697a-3e4a-4d0e-9f50-aa516c0c6f6c" height="300">
+
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/9853f33d-25be-433f-b5d3-780b513fa7eb" height="300">
