@@ -21,8 +21,8 @@ A kivymd android app for reporting child abuse.
 
 # Showing Of the Dark Theme 
 Me: I prefer the light theme 🐈
-
 Programmers Everywhere: What Blasphemy!!! 🐈‍⬛
+
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/5dae6ae1-847b-4815-b633-7dc959cb1317" height="300">
 
 # The Sign Up Screen 
@@ -30,22 +30,22 @@ Programmers Everywhere: What Blasphemy!!! 🐈‍⬛
 
 # Sign Up Screen - 2 (with Countdown)
 Me: Shhh! Tell this to no one, The secret admin key for signing up new admins is 202023
-
 The Code: 🗣️📢📢 🔊🔊
-
 This is why we use environment variables, secret tokens, OTP, JWT and so on. 
 People can't have nice things (simple, unsecure code)🥻 👗 anymore 🫠.
+
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/9bbec038-1968-4c19-847e-b2f602588016" height="300">
 
 # The Login Screen 
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/c0fc8147-734d-4aba-8a27-24681e86c1bc" height="300">
 
 # What You See After Logging or Signing up
-<img src="https://github.com/mosesab/AbuseAlert/assets/87482913/bfbf9fd6-d17c-4591-afcf-6adf65e765aa" height="300">
+<img src="https://github.com/mosesab/AbuseAlert/assets/87482913/12fa697a-3e4a-4d0e-9f50-aa516c0c6f6c" height="300">
 
 # What You See After Logging or Signing up (but with a different color theme).
-<img src="https://github.com/mosesab/AbuseAlert/assets/87482913/12fa697a-3e4a-4d0e-9f50-aa516c0c6f6c" height="300">
+<img src="https://github.com/mosesab/AbuseAlert/assets/87482913/bfbf9fd6-d17c-4591-afcf-6adf65e765aa" height="300">
 
 # An Example Abuse Report submitted using the app. 
 Only Admins can see this, after logging in or signing up
+
 <img src="https://github.com/mosesab/AbuseAlert/assets/87482913/9853f33d-25be-433f-b5d3-780b513fa7eb" height="300">
